@@ -20,13 +20,12 @@ const UserScheme = new mongoose.Schema(
             type: Number,
             default: 0
         },
-        code: Number
-        /*
+        code: Number,
         status: {
             type: Boolean,
             default: false
         }
-            */
+
 
     },
     {
