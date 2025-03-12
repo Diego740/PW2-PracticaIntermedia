@@ -6,7 +6,6 @@ const UserScheme = new mongoose.Schema(
 
     {
         name: String,
-        age: Number,
         email: {
             type: String,
             unique: true
@@ -21,7 +20,7 @@ const UserScheme = new mongoose.Schema(
             default: 0
         },
         code: Number,
-        status: {
+        verificated: {
             type: Boolean,
             default: false
         }
