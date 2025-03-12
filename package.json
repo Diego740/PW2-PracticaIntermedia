@@ -1,0 +1,25 @@
+{
+  "name": "pw2-practicaintermedia",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diego740/PW2-PracticaIntermedia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Diego740/PW2-PracticaIntermedia/issues"
+  },
+  "homepage": "https://github.com/Diego740/PW2-PracticaIntermedia#readme",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}
