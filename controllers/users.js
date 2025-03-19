@@ -1,6 +1,6 @@
 const UserModel = require('../models/users.js')
 const { matchedData } = require('express-validator')
-const { handleHttpError } = require('../utils/handleError')
+const { handleHttpError } = require('../utils/handleError.js/index.js')
 
 
 const createItem = async (req, res) => {

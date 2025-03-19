@@ -1,7 +1,7 @@
 const express = require('express')
 const {createItem } = require ('../controllers/users.js')
 const { validatorCreateItem } = require ("../validators/users.js")
-const customHeader = require("../midldleware/customHeaders.js")
+//const customHeader = require("../midldleware/customHeaders.js")
 
 
 const userRouter = express.Router();
