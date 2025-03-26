@@ -1,8 +1,8 @@
-const { validatorMail } = require("../validators/mail")
-const { send } = require("../controllers/mail")
+const { validatorMail } = require("../validators/mail.js")
+const { send } = require("../controllers/mail.js")
 const express = require('express')
 
 const router = express.Router();
 
 
-router.post("/mail", authMiddleware, validatorMail, send);
+router.post("/mail", validatorMail, send);

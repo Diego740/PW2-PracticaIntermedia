@@ -6,8 +6,8 @@ const { validatorCreateItem } = require ("../validators/users.js")
 
 const userRouter = express.Router();
 
-
 //userRouter.post("/", validatorCreateItem, customHeader, createItem);
+userRouter.post('/', validatorCreateItem, createItem);
 
 
 module.exports = userRouter;
