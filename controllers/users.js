@@ -2,7 +2,7 @@ const UserModel = require("../models/users.js");
 const { matchedData } = require("express-validator");
 const { handleHttpError } = require("../utils/handleError.js");
 const { encryptPassword, isPasswordCorrect } = require("../utils/handlePassword.js");
-const jwt = require("jsonwebtoken");
+const { tokenSign } = require("../utils/handleJWT.js");
 
 
 const createItem = async (req, res) => {
@@ -34,9 +34,7 @@ const createItem = async (req, res) => {
         //const newUser = await UserModel.create(body);
 
         //Generar token JWT
-        const token = jwt.sign({ id: newUser._id }, process.env.TOKEN_SECRET, {
-            expiresIn: "1h",
-        });
+        const token = tokenSign(newUser);
 
         console.log(verificationCode);
         return res.status(201).json({
@@ -70,7 +68,7 @@ const checkLogUser = async (req, res) => {
         const validPassword = await isPasswordCorrect(body.password, user.password);
         if (validPassword) {
             //CREAR TOKEN JWT
-            const token = jwt.sign({ userId: user._id }, process.env.TOKEN_SECRET, { expiresIn: "1h" });
+            const token = tokenSign(user);
 
             return res.status(200).json({ message: "Login exitoso", token });
         }
@@ -79,7 +77,7 @@ const checkLogUser = async (req, res) => {
         return res.status(401).json({ message: "Contraseña incorrecta" });
 
     } catch (err) {
-        //console.error(err);
+        console.error(err);
         handleHttpError(res, "ERROR_LOGIN", 500);
     }
 };
