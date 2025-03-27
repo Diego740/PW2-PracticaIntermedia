@@ -1,0 +1,7 @@
+POST http://localhost:3000/users/register
+Content-Type: application/json
+
+{
+    "email": "diego.aranda2@live.u-tad.com",
+    "password": "12345678"
+}

@@ -17,7 +17,7 @@ const UserScheme = new mongoose.Schema(
         },
         attemps:{
             type: Number,
-            default: 0
+            default: 3
         },
         code: Number,
         verificated: {
