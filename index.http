@@ -5,3 +5,11 @@ Content-Type: application/json
     "email": "diego.aranda2@live.u-tad.com",
     "password": "12345678"
 }
+###
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "email": "diego.aranda2@live.u-tad.com",
+    "password": "12345678"
+}

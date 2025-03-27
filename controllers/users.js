@@ -1,7 +1,7 @@
 const UserModel = require("../models/users.js");
 const { matchedData } = require("express-validator");
 const { handleHttpError } = require("../utils/handleError.js");
-const { encryptPassword } = require("../utils/handlePassword.js");
+const { encryptPassword, isPasswordCorrect } = require("../utils/handlePassword.js");
 const jwt = require("jsonwebtoken");
 
 
@@ -20,7 +20,7 @@ const createItem = async (req, res) => {
 
         //Generar código de verificación de 6 dígitos
         const verificationCode = Math.floor(100000 + Math.random() * 900000);
-        
+
         //Crear usuario
         const newUser = await UserModel.create({
             email: body.email,
@@ -30,11 +30,13 @@ const createItem = async (req, res) => {
             code: verificationCode,
             //verificated: false
         });
-        
+
         //const newUser = await UserModel.create(body);
 
         //Generar token JWT
-        const token = jwt.sign({ id: newUser._id }, process.env.TOKEN_SECRET, { expiresIn: "1h" });
+        const token = jwt.sign({ id: newUser._id }, process.env.TOKEN_SECRET, {
+            expiresIn: "1h",
+        });
 
         console.log(verificationCode);
         return res.status(201).json({
@@ -49,32 +51,37 @@ const createItem = async (req, res) => {
     }
 };
 
+const validateUser = async (req, res) => {};
 
 
-const validateUser = async (req, res) => {
-    
-
-}
 const checkLogUser = async (req, res) => {
     try {
         const body = matchedData(req);
 
         //ENCONTRAR USUARIO
-            //SI EXISTE Y VERIFICADO
-                //COMPROBAR CONTRASEÑAS ENCRIPTADAS
-                //SI CONTRASEÑAS SON IGUALES
-                    //CREAR TOKEN JWT
-                //SI NO EXISTE
-                    //RESTAR INTENTO
-                    //ERROR
-            //SI NO EXISTE
-                //ERROR
-        //RES
+        const user = await UserModel.findOne({ email: body.email });
+
+        //SI NO EXISTE O NO VERIFICADO
+        if (!user || !user.verificated) {
+            return res.status(404).json({ message: "Usuario no encontrado o no verificado" });
+        }
+
+        //COMPROBAR CONTRASEÑAS ENCRIPTADAS
+        const validPassword = await isPasswordCorrect(body.password, user.password);
+        if (validPassword) {
+            //CREAR TOKEN JWT
+            const token = jwt.sign({ userId: user._id }, process.env.TOKEN_SECRET, { expiresIn: "1h" });
+
+            return res.status(200).json({ message: "Login exitoso", token });
+        }
+
+        //CONTRASEÑA INCORRECTA
+        return res.status(401).json({ message: "Contraseña incorrecta" });
 
     } catch (err) {
         //console.error(err);
-        handleHttpError(res, "ERROR_CREATE_ITEMS", 500);
+        handleHttpError(res, "ERROR_LOGIN", 500);
     }
-}
+};
 
-module.exports = { createItem, validateUser, checkLogUser};
+module.exports = { createItem, validateUser, checkLogUser };
