@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Diego740/PW2-PracticaIntermedia#readme",
   "description": "",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
