@@ -55,4 +55,26 @@ const validateUser = async (req, res) => {
     
 
 }
-module.exports = { createItem, validateUser};
+const checkLogUser = async (req, res) => {
+    try {
+        const body = matchedData(req);
+
+        //ENCONTRAR USUARIO
+            //SI EXISTE Y VERIFICADO
+                //COMPROBAR CONTRASEÑAS ENCRIPTADAS
+                //SI CONTRASEÑAS SON IGUALES
+                    //CREAR TOKEN JWT
+                //SI NO EXISTE
+                    //RESTAR INTENTO
+                    //ERROR
+            //SI NO EXISTE
+                //ERROR
+        //RES
+
+    } catch (err) {
+        //console.error(err);
+        handleHttpError(res, "ERROR_CREATE_ITEMS", 500);
+    }
+}
+
+module.exports = { createItem, validateUser, checkLogUser};
