@@ -11,4 +11,11 @@ const validatorCreateItem = [
     validateResults
 ];
 
-module.exports = {validatorCreateItem}
+const validatorVerifyUser = [
+    check("code")
+        .exists().notEmpty()
+        .isLength({ min: 6 }).withMessage("Debe ingresar un código de verificación"),
+    validateResults
+];
+
+module.exports = {validatorCreateItem, validatorVerifyUser}

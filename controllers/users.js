@@ -49,4 +49,10 @@ const createItem = async (req, res) => {
     }
 };
 
-module.exports = { createItem };
+
+
+const validateUser = async (req, res) => {
+    
+
+}
+module.exports = { createItem, validateUser};
