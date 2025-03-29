@@ -49,7 +49,28 @@ const createItem = async (req, res) => {
     }
 };
 
-const validateUser = async (req, res) => {};
+const validateUser = async (req, res) => {
+    try {
+        const body = matchedData(req);
+        const user = req.user;
+
+        if (!user) {
+            return handleHttpError(res, "USER_NOT_FOUND", 404);
+        }
+
+        if (user.code !== parseInt(body.code, 10)) {
+            return handleHttpError(res, "INVALID_CODE", 400);
+        }
+
+        user.verificated = true;
+        await user.save();
+
+        res.status(200).json({ message: "Email verficado" });
+    } catch (err) {
+        console.error(err);
+        handleHttpError(res, "ERROR_VALIDACION", 500);
+    }
+};
 
 
 const checkLogUser = async (req, res) => {
@@ -77,7 +98,7 @@ const checkLogUser = async (req, res) => {
         return res.status(401).json({ message: "Contraseña incorrecta" });
 
     } catch (err) {
-        console.error(err);
+        //console.error(err);
         handleHttpError(res, "ERROR_LOGIN", 500);
     }
 };

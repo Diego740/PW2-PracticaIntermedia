@@ -25,13 +25,28 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3000/users/validate
+PUT http://localhost:3000/users/validate
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U3ZWRhNzZhZjFmMjQ3YzdhNGIwMzciLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMjUyOTAzLCJleHAiOjE3NDMyNTY1MDN9.8gLWJVIkDKBQyTVEIU7aOySX9lqaQkQ9QzQDrz5ZUKc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U3ZjFhNjU1OTI4OWExNjNjZmU4YjIiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMjUzOTI2LCJleHAiOjE3NDMyNTc1MjZ9.ZNkqLyEmrcdggPzGj23aWYzGRRW1efHsSH7eTnXPxew
 
 
 {
-    "email": "hola@gmail.com",
-    "code": "123123123"
+    "code": "173244"
 }
 ###
+POST http://localhost:3000/users/register
+Content-Type: application/json
+
+{
+    "email": "daina@gmail.com",
+    "password": "holaholaa"
+}
+
+###
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "email": "daina@gmail.com",
+    "password": "holaholaa"
+}

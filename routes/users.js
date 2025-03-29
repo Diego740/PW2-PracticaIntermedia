@@ -15,7 +15,7 @@ const userRouter = express.Router();
 
 //userRouter.post("/", validatorCreateItem, customHeader, createItem);
 userRouter.post("/register", validatorCreateItem, createItem);
-userRouter.post("/validate", validatorVerifyUser, authMiddleware, validateUser);
+userRouter.put("/validate", validatorVerifyUser, authMiddleware, validateUser);
 userRouter.post("/login", validatorCreateItem, checkLogUser);
 
 module.exports = userRouter;
