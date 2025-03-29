@@ -45,4 +45,30 @@ const validatorDataUser = [
     validateResults
 ];
 
-module.exports = {validatorCreateItem, validatorVerifyUser, validatorDataUser}
+const validatorCompany = [
+    check("company.name")
+        .exists().notEmpty().withMessage("El nombre de la empresa es obligatorio"),
+
+    check("company.cif")
+        .exists().notEmpty()
+        .matches(/^[A-Z]\d{8}$/).withMessage("El CIF debe tener el formato correcto"),
+
+    check("company.street")
+        .exists().notEmpty().withMessage("La calle es obligatoria"),
+
+    check("company.number")
+        .exists().notEmpty().isInt({ min: 1 }).withMessage("El número debe ser un entero positivo"),
+
+    check("company.postal")
+        .exists().notEmpty().isInt({ min: 1000, max: 99999 }).withMessage("El código postal debe ser válido"),
+
+    check("company.city")
+        .exists().notEmpty().withMessage("La ciudad es obligatoria"),
+
+    check("company.province")
+        .exists().notEmpty().withMessage("La provincia es obligatoria"),
+
+    validateResults
+];
+
+module.exports = {validatorCreateItem, validatorVerifyUser, validatorDataUser, validatorCompany}

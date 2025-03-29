@@ -64,3 +64,39 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NmFiN
     "surnames":"Aranda",
     "nif":"18456604R"
 }
+
+
+###
+PUT http://localhost:3000/users/company
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NmFiNDg0MWM1NjQ5ZWNmNmMzNTgiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMjg0OTE2LCJleHAiOjE3NDMyODg1MTZ9.LibQb4KibwKcPSr4MLTzkizzRFlNstftkKN-wZ9FOVQ
+
+{
+    "company": {
+        "name": "Servitop, SL.",
+        "cif": "B12345678",
+        "street": "Carlos V",
+        "number": 22,
+        "postal": 28936,
+        "city": "Móstoles",
+        "province": "Madrid"
+    }
+}
+
+
+###
+PUT http://localhost:3000/users/company
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NzU3ZGFlODVmZWM5YThlMjNhYTYiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMjg3Njc3LCJleHAiOjE3NDMyOTEyNzd9.KKzMvoMmR3zw1VieoG_2Dgafbe75yF_2_6wy7hV73a8
+
+{
+    "company": {
+        "name": "Servitop, SL.",
+        "cif": "B12345678",
+        "street": "Carlos V",
+        "number": 22,
+        "postal": 28936,
+        "city": "Móstoles",
+        "province": "Madrid"
+    }
+}

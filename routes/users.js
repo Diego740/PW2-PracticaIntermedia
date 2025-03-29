@@ -3,12 +3,14 @@ const {
     createItem,
     validateUser,
     checkLogUser,
-    addDataUser
+    addDataUser,
+    addCompanyData
 } = require("../controllers/users.js");
 const {
     validatorCreateItem,
     validatorVerifyUser,
-    validatorDataUser
+    validatorDataUser,
+    validatorCompany
 
 } = require("../validators/users.js");
 const { authMiddleware } = require("../middleware/authMiddleware.js");
@@ -23,4 +25,5 @@ userRouter.post("/login", validatorCreateItem, checkLogUser);
 
 
 userRouter.put("/register", validatorDataUser, authMiddleware, addDataUser);
+userRouter.put("/company", validatorCompany, authMiddleware, addCompanyData);
 module.exports = userRouter;

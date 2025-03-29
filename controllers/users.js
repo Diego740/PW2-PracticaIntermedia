@@ -144,10 +144,55 @@ const addDataUser = async (req, res) => {
         
         
     } catch (err) {
-        console.error(err); 
+        //console.error(err); 
         handleHttpError(res, "ERROR_ADDING_DATA", 500);
     }
 
 
 }
-module.exports = { createItem, validateUser, checkLogUser, addDataUser};
+
+const addCompanyData = async (req, res) => {
+    try {
+        const body = matchedData(req);
+        const user = req.user;
+
+        if (!user) {
+            return handleHttpError(res, "USER_NOT_FOUND", 404);
+        }
+
+        // Verificar si el CIF ya existe en otro usuario
+        const existingCompany = await UserModel.findOne({
+            "company.cif": body.company.cif,
+            _id: { $ne: user._id } // Excluir el usuario actual
+        });
+
+        if (existingCompany) {
+            return handleHttpError(res, "Company CIF already exists", 409);
+        }
+
+
+        user.company = {
+            name: body.company.name,
+            cif: body.company.cif,
+            street: body.company.street,
+            number: body.company.number,
+            postal: body.company.postal,
+            city: body.company.city,
+            province: body.company.province
+        };
+
+        await user.save();
+
+        res.status(200).json({ 
+            message: "Datos de la empresa actualizados correctamente",
+            user: {
+                company: user.company
+            }
+        });
+
+    } catch (err) {
+        console.error(err); 
+        handleHttpError(res, "ERROR_ADDING_COMPANY_DATA", 500);
+    }
+};
+module.exports = { createItem, validateUser, checkLogUser, addDataUser, addCompanyData};

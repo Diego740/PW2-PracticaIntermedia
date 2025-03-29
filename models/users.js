@@ -25,6 +25,15 @@ const UserScheme = new mongoose.Schema(
         verificated: {
             type: Boolean,
             default: false
+        },
+        company: {
+            name: String,
+            cif: String,
+            street: String,
+            number: Number,
+            postal: Number,
+            city: String,
+            province: String,
         }
 
 
