@@ -6,6 +6,8 @@ const UserScheme = new mongoose.Schema(
 
     {
         name: String,
+        surnames: String,
+        nif: String,
         email: {
             type: String,
             unique: true

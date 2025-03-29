@@ -37,7 +37,7 @@ const createItem = async (req, res) => {
         const token = tokenSign(newUser);
 
         console.log(verificationCode);
-        return res.status(201).json({
+        return res.status(200).json({
             email: newUser.email,
             verificated: newUser.verificated,
             role: newUser.role,
@@ -111,4 +111,43 @@ const checkLogUser = async (req, res) => {
     }
 };
 
-module.exports = { createItem, validateUser, checkLogUser };
+
+const addDataUser = async (req, res) => {
+    try {
+        const body = matchedData(req);
+        const user = req.user;
+
+        if (!user) {
+            return handleHttpError(res, "USER_NOT_FOUND", 404);
+        }
+        //¿Se debe poder cambiar el correo?¿O para qué se pide en la llamada?
+        user.email = body.email;
+
+
+        user.name = body.name;
+        user.surnames = body.surnames;
+        user.nif = body.nif;
+
+        await user.save();
+
+        res.status(200).json({ 
+            message: "Datos actualizados correctamente",
+            user: {
+                _id: user._id,
+                email: user.email,
+                name: user.name,
+                surnames: user.surnames,
+                nif: user.nif,
+                role: user.role
+            }
+        });
+        
+        
+    } catch (err) {
+        console.error(err); 
+        handleHttpError(res, "ERROR_ADDING_DATA", 500);
+    }
+
+
+}
+module.exports = { createItem, validateUser, checkLogUser, addDataUser};
