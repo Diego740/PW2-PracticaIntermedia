@@ -27,7 +27,7 @@ Content-Type: application/json
 ###
 PUT http://localhost:3000/users/validate
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U3ZjFhNjU1OTI4OWExNjNjZmU4YjIiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMjUzOTI2LCJleHAiOjE3NDMyNTc1MjZ9.ZNkqLyEmrcdggPzGj23aWYzGRRW1efHsSH7eTnXPxew
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U3ZjNiMWJhYTI0Y2E0YzliYWExZmIiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMjU0NDQ5LCJleHAiOjE3NDMyNTgwNDl9.gkEP7aZxiwDmNcEINbDkiJQXW7g8igP-MemFe4otAjg
 
 
 {

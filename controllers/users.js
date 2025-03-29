@@ -59,7 +59,15 @@ const validateUser = async (req, res) => {
         }
 
         if (user.code !== parseInt(body.code, 10)) {
-            return handleHttpError(res, "INVALID_CODE", 400);
+            user.attemps -= 1;
+
+            if (user.attemps <= 0) {
+                await UserModel.deleteOne({ _id: user._id });
+                return handleHttpError(res, "USER_DELETED_TOO_MANY_ATTEMPTS", 403);
+            }
+
+            await user.save(); 
+            return handleHttpError(res, `INVALID_CODE_ATTEMPTS_LEFT_${user.attemps}`, 400);
         }
 
         user.verificated = true;
