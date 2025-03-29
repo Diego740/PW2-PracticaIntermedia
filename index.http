@@ -13,3 +13,25 @@ Content-Type: application/json
     "email": "diego.aranda2@live.u-tad.com",
     "password": "12345678"
 }
+
+
+###
+POST http://localhost:3000/users/register
+Content-Type: application/json
+
+{
+    "email": "hola@gmail.com",
+    "password": "123123123"
+}
+
+###
+POST http://localhost:3000/users/validate
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U3ZWRhNzZhZjFmMjQ3YzdhNGIwMzciLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMjUyOTAzLCJleHAiOjE3NDMyNTY1MDN9.8gLWJVIkDKBQyTVEIU7aOySX9lqaQkQ9QzQDrz5ZUKc
+
+
+{
+    "email": "hola@gmail.com",
+    "code": "123123123"
+}
+###
