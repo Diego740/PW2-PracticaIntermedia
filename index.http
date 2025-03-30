@@ -106,3 +106,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NzU3Z
 GET http://localhost:3000/users/
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NmFiNDg0MWM1NjQ5ZWNmNmMzNTgiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMzMwMDk5LCJleHAiOjE3NDMzMzM2OTl9.BEnAQ-3157DibUF530daiabULuC4G3cpcRyHThuu-pA
+
+###
+DELETE http://localhost:3000/users/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NmFiNDg0MWM1NjQ5ZWNmNmMzNTgiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMzMwMDk5LCJleHAiOjE3NDMzMzM2OTl9.BEnAQ-3157DibUF530daiabULuC4G3cpcRyHThuu-pA
+
+###
+DELETE http://localhost:3000/users/?soft=false
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NmFiNDg0MWM1NjQ5ZWNmNmMzNTgiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMzMwMDk5LCJleHAiOjE3NDMzMzM2OTl9.BEnAQ-3157DibUF530daiabULuC4G3cpcRyHThuu-pA

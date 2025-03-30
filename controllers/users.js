@@ -216,4 +216,30 @@ const getUser = async (req, res) => {
     }
 
 }
-module.exports = { createItem, validateUser, checkLogUser, addDataUser, addCompanyData, getUser};
+
+const deleteUser = async (req, res) => {
+    try {
+        const user = req.user;
+        const softDelete = req.query.soft !== "false";
+
+        if (!user) {
+            return handleHttpError(res, "USER_NOT_FOUND", 404);
+        }
+
+        if (softDelete) {
+            // Soft delete con mongoose-delete
+            await UserModel.delete({ _id: user._id });
+            return res.status(200).json({ message: "Usuario desactivado correctamente" });
+        } else {
+            //Hard delete
+            await UserModel.deleteOne({ _id: user._id });
+            return res.status(200).json({ message: "Usuario eliminado permanentemente" });
+        }
+
+    } catch (err) {
+        console.error(err);
+        handleHttpError(res, "ERROR_DELETING_USER", 500);
+    }
+}
+
+module.exports = { createItem, validateUser, checkLogUser, addDataUser, addCompanyData, getUser, deleteUser};

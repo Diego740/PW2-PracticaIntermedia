@@ -5,7 +5,8 @@ const {
     checkLogUser,
     addDataUser,
     addCompanyData,
-    getUser
+    getUser,
+    deleteUser
 } = require("../controllers/users.js");
 const {
     validatorCreateItem,
@@ -29,5 +30,7 @@ userRouter.put("/register", validatorDataUser, authMiddleware, addDataUser);
 userRouter.put("/company", validatorCompany, authMiddleware, addCompanyData);
 
 userRouter.get("/", authMiddleware, getUser);
+
+userRouter.delete("/", authMiddleware, deleteUser);
 
 module.exports = userRouter;
