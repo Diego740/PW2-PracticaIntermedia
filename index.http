@@ -87,7 +87,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NmFiN
 ###
 PUT http://localhost:3000/users/company
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NzU3ZGFlODVmZWM5YThlMjNhYTYiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMjg3Njc3LCJleHAiOjE3NDMyOTEyNzd9.KKzMvoMmR3zw1VieoG_2Dgafbe75yF_2_6wy7hV73a8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U5NjY2NDJjMTkwOTU5MGUxNmQ0NDEiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMzQ5MzQ5LCJleHAiOjE3NDMzNTI5NDl9.YW2rh5hfJ_KVCoHe9pP8MJM4xLCfF9HuuXZj50mlnyQ
 
 {
     "company": {
@@ -105,7 +105,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NzU3Z
 ###
 GET http://localhost:3000/users/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NmFiNDg0MWM1NjQ5ZWNmNmMzNTgiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMzMwMDk5LCJleHAiOjE3NDMzMzM2OTl9.BEnAQ-3157DibUF530daiabULuC4G3cpcRyHThuu-pA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U5NjY2NDJjMTkwOTU5MGUxNmQ0NDEiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMzQ5MzQ5LCJleHAiOjE3NDMzNTI5NDl9.YW2rh5hfJ_KVCoHe9pP8MJM4xLCfF9HuuXZj50mlnyQ
 
 ###
 DELETE http://localhost:3000/users/
@@ -116,3 +116,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NmFiN
 DELETE http://localhost:3000/users/?soft=false
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NmFiNDg0MWM1NjQ5ZWNmNmMzNTgiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMzMwMDk5LCJleHAiOjE3NDMzMzM2OTl9.BEnAQ-3157DibUF530daiabULuC4G3cpcRyHThuu-pA
+
+###
+PATCH http://localhost:3000/users/logo HTTP/1.1
+Content-Type: multipart/form-data; boundary=boundary123
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U5NjY2NDJjMTkwOTU5MGUxNmQ0NDEiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMzQ5MzQ5LCJleHAiOjE3NDMzNTI5NDl9.YW2rh5hfJ_KVCoHe9pP8MJM4xLCfF9HuuXZj50mlnyQ
+
+--boundary123
+Content-Disposition: form-data; name="image"; filename="Raccoon.jpg"
+Content-Type: image/jpeg
+
+< Raccoon.jpg
+--boundary123--
