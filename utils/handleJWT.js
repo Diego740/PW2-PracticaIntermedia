@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken")
 const { handleHttpError } = require("./handleError")
 const secret = process.env.TOKEN_SECRET
+const resetSecret = process.env.RESET_TOKEN_SECRET
 const tokenSign = (user) => {
     const sign = jwt.sign(
         {
@@ -22,4 +23,24 @@ const verifyToken = (tokenJwt) => {
         handleHttpError(res, "INVALID_TOKEN", 400)
     }
 }
-module.exports = { tokenSign, verifyToken }
+
+
+
+const generateResetToken = (user) => {
+    return jwt.sign(
+        {  _id: user._id },
+        resetSecret,
+        { expiresIn: "15m" }
+    );
+};
+const verifyResetToken = (tokenJwt) => {
+    try {
+        return jwt.verify(tokenJwt, resetSecret);
+    } catch (err) {
+        handleHttpError(res, "INVALID_TOKEN", 400);
+    }
+};
+
+
+
+module.exports = { tokenSign, verifyToken, generateResetToken, verifyResetToken };

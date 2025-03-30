@@ -128,3 +128,30 @@ Content-Type: image/jpeg
 
 < Raccoon.jpg
 --boundary123--
+
+
+
+###
+POST http://localhost:3000/password/getToken
+Content-Type: application/json
+
+{
+    "email": "diego.aranda2@live.u-tad.com"
+}
+
+###
+PUT http://localhost:3000/password/changePassword
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U5NjY2NDJjMTkwOTU5MGUxNmQ0NDEiLCJpYXQiOjE3NDMzNzc1NjYsImV4cCI6MTc0MzM3ODQ2Nn0.dtvsQuCXd8w5GsRP_3p3Ltg4OO3IZct4eTCKzuRQ1jg
+
+{
+  "password": "holahola"
+}
+###
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "email": "diego.aranda2@live.u-tad.com",
+    "password": "holahola"
+}
