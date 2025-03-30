@@ -75,7 +75,7 @@ const validateUser = async (req, res) => {
 
         res.status(200).json({ message: "Email verficado" });
     } catch (err) {
-        console.error(err);
+        //console.error(err);
         handleHttpError(res, "ERROR_VALIDACION", 500);
     }
 };
@@ -191,8 +191,29 @@ const addCompanyData = async (req, res) => {
         });
 
     } catch (err) {
-        console.error(err); 
+        //console.error(err); 
         handleHttpError(res, "ERROR_ADDING_COMPANY_DATA", 500);
     }
 };
-module.exports = { createItem, validateUser, checkLogUser, addDataUser, addCompanyData};
+
+const getUser = async (req, res) => {
+    try {
+        const body = matchedData(req);
+        const user = req.user;
+        if (!user) {
+            return handleHttpError(res, "USER_NOT_FOUND", 404);
+        }
+
+        const { password, ...userData } = user.toObject();
+
+        res.status(200).json({
+            message: "Usuario encontrado",
+            user: userData
+        });
+        
+    } catch (err) {
+        handleHttpError(res, "ERROR_GETTING_USER", 500);
+    }
+
+}
+module.exports = { createItem, validateUser, checkLogUser, addDataUser, addCompanyData, getUser};

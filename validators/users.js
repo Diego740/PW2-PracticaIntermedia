@@ -71,4 +71,5 @@ const validatorCompany = [
     validateResults
 ];
 
+
 module.exports = {validatorCreateItem, validatorVerifyUser, validatorDataUser, validatorCompany}

@@ -55,7 +55,7 @@ Content-Type: application/json
 ###
 PUT http://localhost:3000/users/register
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NmFiNDg0MWM1NjQ5ZWNmNmMzNTgiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMjg0OTE2LCJleHAiOjE3NDMyODg1MTZ9.LibQb4KibwKcPSr4MLTzkizzRFlNstftkKN-wZ9FOVQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NmFiNDg0MWM1NjQ5ZWNmNmMzNTgiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMzMwMDk5LCJleHAiOjE3NDMzMzM2OTl9.BEnAQ-3157DibUF530daiabULuC4G3cpcRyHThuu-pA
 
 
 {
@@ -69,7 +69,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NmFiN
 ###
 PUT http://localhost:3000/users/company
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NmFiNDg0MWM1NjQ5ZWNmNmMzNTgiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMjg0OTE2LCJleHAiOjE3NDMyODg1MTZ9.LibQb4KibwKcPSr4MLTzkizzRFlNstftkKN-wZ9FOVQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NmFiNDg0MWM1NjQ5ZWNmNmMzNTgiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMzMwMDk5LCJleHAiOjE3NDMzMzM2OTl9.BEnAQ-3157DibUF530daiabULuC4G3cpcRyHThuu-pA
 
 {
     "company": {
@@ -100,3 +100,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NzU3Z
         "province": "Madrid"
     }
 }
+
+
+###
+GET http://localhost:3000/users/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NmFiNDg0MWM1NjQ5ZWNmNmMzNTgiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMzMwMDk5LCJleHAiOjE3NDMzMzM2OTl9.BEnAQ-3157DibUF530daiabULuC4G3cpcRyHThuu-pA
