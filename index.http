@@ -166,3 +166,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U5NjY2N
 {
     "email": "daiana@gmail.com"
 }
+
+####
+POST http://localhost:3000/mail/mail
+Content-Type: application/json
+
+{
+    "subject": "hola",
+    "text":"adios",
+    "to": "diego.aranda2@live.u-tad.com",
+    "from": "7.40diego@gmail.com"
+}
+
