@@ -6,11 +6,11 @@ const {
     addDataUser,
     addCompanyData,
     getUser,
-    deleteUser
+    deleteUser,
+    inviteUser
 } = require("../controllers/users.js");
 
 const {
-    updateLogo,
     updateImage
 } = require("../controllers/storage.js");
 
@@ -18,7 +18,8 @@ const {
     validatorCreateItem,
     validatorVerifyUser,
     validatorDataUser,
-    validatorCompany
+    validatorCompany,
+    validatorInvite
 
 } = require("../validators/users.js");
 const { authMiddleware } = require("../middleware/authMiddleware.js");
@@ -40,5 +41,7 @@ userRouter.get("/", authMiddleware, getUser);
 
 userRouter.delete("/", authMiddleware, deleteUser);
 userRouter.patch("/logo",authMiddleware, uploadMiddlewareMemory.single("image"), updateImage);
+
+userRouter.post("/invite", authMiddleware, validatorInvite, inviteUser)
 
 module.exports = userRouter;

@@ -242,4 +242,52 @@ const deleteUser = async (req, res) => {
     }
 }
 
-module.exports = { createItem, validateUser, checkLogUser, addDataUser, addCompanyData, getUser, deleteUser};
+
+
+const inviteUser = async (req, res) => {
+    try {
+        const body = matchedData(req);
+        const user = req.user;
+        const invitedUserEmail = body.email;
+
+        if (!user) {
+            return handleHttpError(res, "USER_NOT_FOUND", 404);
+        }
+        const existingUser = await UserModel.findOne({ email: invitedUserEmail });
+
+        if (existingUser) {
+            return res.status(409).json({ message: "El usuario ya dispone de una cuenta" });
+        }
+
+        const hashedPassword = await encryptPassword("password");
+        const verificationCode = Math.floor(100000 + Math.random() * 900000);
+         //Crear usuario
+         const newUser = await UserModel.create({
+            email: invitedUserEmail,
+            password: hashedPassword,
+            role: "guest",
+            //attemps: 3,
+            code: verificationCode,
+            //verificated: false
+        });
+
+        newUser.company = user.company;
+        await newUser.save();
+
+    
+        const token = tokenSign(newUser);
+        console.log(verificationCode);
+        //console.log(invitedUserEmail)
+        res.status(200).json({ message: "Invitación enviada correctamente", defaultPassword: "password", email: newUser.email,
+            verificated: newUser.verificated,
+            role: newUser.role,
+            token });
+
+    } catch (err) {
+        //console.error(err);
+        handleHttpError(res, "ERROR_INVITING_USER", 500);
+    }
+}
+
+
+module.exports = { createItem, validateUser, checkLogUser, addDataUser, addCompanyData, getUser, deleteUser, inviteUser};

@@ -27,11 +27,11 @@ Content-Type: application/json
 ###
 PUT http://localhost:3000/users/validate
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NmFiNDg0MWM1NjQ5ZWNmNmMzNTgiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMjg0OTE2LCJleHAiOjE3NDMyODg1MTZ9.LibQb4KibwKcPSr4MLTzkizzRFlNstftkKN-wZ9FOVQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U5NjY2NDJjMTkwOTU5MGUxNmQ0NDEiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMzc3NzIwLCJleHAiOjE3NDMzODEzMjB9.bgAICz6VYsHTh4N0gsnpxs3x2461w4mE2vjWkc5KUe4
 
 
 {
-    "code": "107007"
+    "code": "505981"
 }
 ###
 POST http://localhost:3000/users/register
@@ -154,4 +154,15 @@ Content-Type: application/json
 {
     "email": "diego.aranda2@live.u-tad.com",
     "password": "holahola"
+}
+
+
+###
+POST http://localhost:3000/users/invite
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U5NjY2NDJjMTkwOTU5MGUxNmQ0NDEiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMzgxMzM3LCJleHAiOjE3NDMzODQ5Mzd9.MXPeB6Kc76HGzNYYo4l2_NI7Xv-m3hKHaLR8t6gLP_M
+
+
+{
+    "email": "daiana@gmail.com"
 }

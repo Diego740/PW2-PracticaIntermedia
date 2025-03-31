@@ -71,5 +71,12 @@ const validatorCompany = [
     validateResults
 ];
 
+const validatorInvite = [
+    //check("name").exists().notEmpty(),
+    check("email")
+        .exists().notEmpty().isEmail().withMessage("Debe ser un email válido"),
+    validateResults
+];
 
-module.exports = {validatorCreateItem, validatorVerifyUser, validatorDataUser, validatorCompany}
+
+module.exports = {validatorCreateItem, validatorVerifyUser, validatorDataUser, validatorCompany, validatorInvite}
