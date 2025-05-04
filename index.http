@@ -105,7 +105,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U5NjY2N
 ###
 GET http://localhost:3000/users/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U5NjY2NDJjMTkwOTU5MGUxNmQ0NDEiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMzQ5MzQ5LCJleHAiOjE3NDMzNTI5NDl9.YW2rh5hfJ_KVCoHe9pP8MJM4xLCfF9HuuXZj50mlnyQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2Mzc3ODY2LCJleHAiOjE3NDYzODE0NjZ9.YziRICxrg-YBDnPS0ZKL3ZhZ_Zyy4ejrOwKV9_wEldE
 
 ###
 DELETE http://localhost:3000/users/
@@ -178,3 +178,45 @@ Content-Type: application/json
     "from": "7.40diego@gmail.com"
 }
 
+
+###
+POST http://localhost:3000/client
+Content-Type: application/json
+Authorization: Bearer http://localhost:3000/client/
+
+{   
+    "name": "Cliente 1",
+    "address": "Calle Ficticia 123",
+    "email": "cliente1@example.com"
+}
+
+###
+GET http://localhost:3000/client/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2Mzk0MjM1LCJleHAiOjE3NDYzOTc4MzV9.pIOfZSQmhnzbCoeMUdT7MtquRpOXPKYioI1EgXUfSpE
+
+###
+GET http://localhost:3000/client/6817a381c097c3812708113d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2Mzk0MjM1LCJleHAiOjE3NDYzOTc4MzV9.pIOfZSQmhnzbCoeMUdT7MtquRpOXPKYioI1EgXUfSpE
+
+###
+PUT http://localhost:3000/client/6817a381c097c3812708113d
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2Mzk0MjM1LCJleHAiOjE3NDYzOTc4MzV9.pIOfZSQmhnzbCoeMUdT7MtquRpOXPKYioI1EgXUfSpE
+
+{
+    "name": "Cliente 1 Actualizado",
+    "address": "Calle Nueva 456",
+    "email": "cliente1actualizado@example.com"
+}
+
+###
+DELETE http://localhost:3000/client/6817a381c097c3812708113d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2Mzk0MjM1LCJleHAiOjE3NDYzOTc4MzV9.pIOfZSQmhnzbCoeMUdT7MtquRpOXPKYioI1EgXUfSpE
+
+###
+DELETE http://localhost:3000/client/6817a381c097c3812708113d?delete=hard
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2Mzk0MjM1LCJleHAiOjE3NDYzOTc4MzV9.pIOfZSQmhnzbCoeMUdT7MtquRpOXPKYioI1EgXUfSpE
+
+###
+PATCH http://localhost:3000/client/restore/6817a381c097c3812708113d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2Mzk0MjM1LCJleHAiOjE3NDYzOTc4MzV9.pIOfZSQmhnzbCoeMUdT7MtquRpOXPKYioI1EgXUfSpE
