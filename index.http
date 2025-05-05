@@ -192,7 +192,7 @@ Authorization: Bearer http://localhost:3000/client/
 
 ###
 GET http://localhost:3000/client/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2Mzk0MjM1LCJleHAiOjE3NDYzOTc4MzV9.pIOfZSQmhnzbCoeMUdT7MtquRpOXPKYioI1EgXUfSpE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NDMwMDM3LCJleHAiOjE3NDY0MzM2Mzd9.oSKRwhutER68cCT2HdD2NAZyNS5HfcJyXm2qf9b1DjA
 
 ###
 GET http://localhost:3000/client/6817a381c097c3812708113d
@@ -220,3 +220,75 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5N
 ###
 PATCH http://localhost:3000/client/restore/6817a381c097c3812708113d
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2Mzk0MjM1LCJleHAiOjE3NDYzOTc4MzV9.pIOfZSQmhnzbCoeMUdT7MtquRpOXPKYioI1EgXUfSpE
+
+
+###
+POST http://localhost:3000/projects
+Authorization: Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NDMwMDM3LCJleHAiOjE3NDY0MzM2Mzd9.oSKRwhutER68cCT2HdD2NAZyNS5HfcJyXm2qf9b1DjA
+Content-Type: application/json
+
+{
+    "name": "Obra A",
+    "projectCode": "ID-Proyecto-1",
+    "code": "0001",
+    "address": {
+        "street": "Carlos II",
+        "number": 22,
+        "postal": 28936,
+        "city": "Móstoles",
+        "province": "Madrid"
+    },
+    "begin": "07-01-2024",
+    "end": "07-01-2025",
+    "notes": "Proyecto en fase de planificación",
+    "clientId": "6817a381c097c3812708113d"
+}
+
+###
+GET http://localhost:3000/projects
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NDMwMDM3LCJleHAiOjE3NDY0MzM2Mzd9.oSKRwhutER68cCT2HdD2NAZyNS5HfcJyXm2qf9b1DjA
+Content-Type: application/json
+
+
+###
+GET http://localhost:3000/projects/681870615684159e11db8b63
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NDMwMDM3LCJleHAiOjE3NDY0MzM2Mzd9.oSKRwhutER68cCT2HdD2NAZyNS5HfcJyXm2qf9b1DjA
+Content-Type: application/json
+
+###
+PUT http://localhost:3000/projects/681870615684159e11db8b63
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NDMwMDM3LCJleHAiOjE3NDY0MzM2Mzd9.oSKRwhutER68cCT2HdD2NAZyNS5HfcJyXm2qf9b1DjA
+Content-Type: application/json
+
+{
+    "name": "Obra B",
+    "projectCode": "ID-Proyecto-2",
+    "code": "0002",
+    "address": {
+        "street": "Calle Ficticia",
+        "number": 45,
+        "postal": 28930,
+        "city": "Alcalá de Henares",
+        "province": "Madrid"
+    },
+    "begin": "08-01-2024",
+    "end": "08-01-2025",
+    "notes": "Proyecto en ejecución",
+    "clientId": "6817a381c097c3812708113d"
+}
+
+###
+DELETE http://localhost:3000/projects/681870615684159e11db8b63?soft=true
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NDMwMDM3LCJleHAiOjE3NDY0MzM2Mzd9.oSKRwhutER68cCT2HdD2NAZyNS5HfcJyXm2qf9b1DjA
+Content-Type: application/json
+
+
+###
+DELETE http://localhost:3000/projects/681870615684159e11db8b63?soft=false
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NDMwMDM3LCJleHAiOjE3NDY0MzM2Mzd9.oSKRwhutER68cCT2HdD2NAZyNS5HfcJyXm2qf9b1DjA
+Content-Type: application/json
+
+###
+PATCH http://localhost:3000/projects/restore/681870615684159e11db8b63
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NDMwMDM3LCJleHAiOjE3NDY0MzM2Mzd9.oSKRwhutER68cCT2HdD2NAZyNS5HfcJyXm2qf9b1DjA
+Content-Type: application/json
