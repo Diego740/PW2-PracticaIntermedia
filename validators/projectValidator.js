@@ -89,7 +89,7 @@ const validatorCreateProject = [
         .isMongoId()
         .withMessage("El ID del cliente debe ser un ObjectId válido")
         .custom(async (value) => {
-            const client = await Client.findById(value); // Verifica si el cliente existe en la base de datos
+            const client = await Client.findById(value);
             if (!client) {
                 throw new Error("El cliente con este ID no existe");
             }

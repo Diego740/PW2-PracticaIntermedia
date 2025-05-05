@@ -2,31 +2,31 @@ const Project = require('../models/projects');
 const { handleHttpError } = require('../utils/handleError');
 const { matchedData } = require('express-validator');
 
-// Crear un nuevo proyecto
+
 const createProject = async (req, res) => {
   try {
     const body = matchedData(req);
     const { name, projectCode, code, address, begin, end, notes, clientId } = body;
-    console.log(body)
+    //console.log(body)
 
-    // Verificar si el proyecto ya existe
+
     const existingProject = await Project.findOne({ projectCode, userId: req.user.id });
     if (existingProject) {
       return res.status(400).json({ message: 'El proyecto ya existe.' });
     }
 
-    // Crear el nuevo proyecto
+
     const newProject = new Project({ name, projectCode, code, address, userId: req.user.id, clientId, begin, end, notes });
     await newProject.save();
 
     res.status(201).json({ data: newProject });
   } catch (error) {
-    //console.log(error)
+
     handleHttpError(res, "ERROR_CREATING_PROJECT", 500);
   }
 };
 
-// Obtener todos los proyectos del usuario
+
 const getAllProjects = async (req, res) => {
   try {
     const projects = await Project.find({ userId: req.user.id });
@@ -36,7 +36,7 @@ const getAllProjects = async (req, res) => {
   }
 };
 
-// Obtener un proyecto por ID
+
 const getProjectById = async (req, res) => {
   try {
     const project = await Project.findOne({ _id: req.params.id, userId: req.user.id });
@@ -49,7 +49,7 @@ const getProjectById = async (req, res) => {
   }
 };
 
-// Actualizar un proyecto
+
 const updateProject = async (req, res) => {
   try {
     const body = matchedData(req);
@@ -71,12 +71,12 @@ const updateProject = async (req, res) => {
   }
 };
 
-// Eliminar un proyecto (soft o hard delete)
+
 const deleteProject = async (req, res) => {
   try {
     const projectId = req.params.id;
     const userId = req.user.id;
-    const softDelete = req.query.soft !== "false";  // Si "soft" es "false", se realiza hard delete
+    const softDelete = req.query.soft !== "false";
 
     const project = await Project.findOne({ _id: projectId, userId });
 
@@ -99,7 +99,7 @@ const deleteProject = async (req, res) => {
   }
 };
 
-// Restaurar un proyecto
+
 const restoreProject = async (req, res) => {
   try {
     const projectId = req.params.id;

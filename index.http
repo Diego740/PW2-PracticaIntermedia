@@ -292,3 +292,44 @@ Content-Type: application/json
 PATCH http://localhost:3000/projects/restore/681870615684159e11db8b63
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NDMwMDM3LCJleHAiOjE3NDY0MzM2Mzd9.oSKRwhutER68cCT2HdD2NAZyNS5HfcJyXm2qf9b1DjA
 Content-Type: application/json
+
+
+###
+POST http://localhost:3000/deliverynotes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NDU5NTkzLCJleHAiOjE3NDY0NjMxOTN9.bHClCgx_clyTU1qoBJvFFVNnowcOdt0ZSn6WVYA_DIA
+Content-Type: application/json
+
+{
+  "projectId": "681870615684159e11db8b63",  
+  "clientId": "6817a381c097c3812708113d",   
+  "format": "materials",                         
+  "hours": 8,                                                        
+  "description": "Trabajo realizado en la obra A"
+}
+
+###
+GET http://localhost:3000/deliverynotes
+
+###
+GET http://localhost:3000/deliverynotes/6818dd5350eb18ba445a2600
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NDU5NTkzLCJleHAiOjE3NDY0NjMxOTN9.bHClCgx_clyTU1qoBJvFFVNnowcOdt0ZSn6WVYA_DIA
+
+###
+DELETE http://localhost:3000/deliverynotes/6818dd5350eb18ba445a2600?soft=true
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NDU5NTkzLCJleHAiOjE3NDY0NjMxOTN9.bHClCgx_clyTU1qoBJvFFVNnowcOdt0ZSn6WVYA_DIA
+
+
+###
+GET http://localhost:3000/deliverynotes/pdf/6818dd5350eb18ba445a2600
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NDU5NTkzLCJleHAiOjE3NDY0NjMxOTN9.bHClCgx_clyTU1qoBJvFFVNnowcOdt0ZSn6WVYA_DIA
+
+###
+POST http://localhost:3000/deliverynotes/sign
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NDYzNDU3LCJleHAiOjE3NDY0NjcwNTd9.gil0WpvojmLpOz47KcgxxSzkbAgc_bzqg5ArcXx7cQg
+Content-Type: application/json
+
+{
+  "deliveryNoteId": "6818dd5350eb18ba445a2600",
+  "signatureImageBuffer": "<FIRMA>",
+  "signatureImageName": "firma.png"
+}
