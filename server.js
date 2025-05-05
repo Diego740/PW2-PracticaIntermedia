@@ -7,6 +7,11 @@ const routers = require('./routes')
 const dbConnect = require('./config/mongo.js')
 const { setupSwagger } = require('./swagger.js')
 
+
+const morganBody = require("morgan-body");
+const loggerStream = require("./utils/handleLogger");
+
+
 const app=express()
 app.use(cors())
 app.use(express.json())
@@ -20,3 +25,12 @@ app.listen(port, () => {
 })
 
 dbConnect()
+
+
+morganBody(app, {
+    noColors: true,
+    skip: function (req, res) {
+      return res.statusCode < 400;
+    },
+    stream: loggerStream,
+  });
