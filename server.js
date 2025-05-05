@@ -15,6 +15,15 @@ const loggerStream = require("./utils/handleLogger");
 const app=express()
 app.use(cors())
 app.use(express.json())
+
+morganBody(app, {
+    noColors: true,
+    skip: function (req, res) {
+      return res.statusCode < 400;
+    },
+    stream: loggerStream,
+  });
+
 setupSwagger(app)
 app.use("/", routers)
 
@@ -27,10 +36,3 @@ app.listen(port, () => {
 dbConnect()
 
 
-morganBody(app, {
-    noColors: true,
-    skip: function (req, res) {
-      return res.statusCode < 400;
-    },
-    stream: loggerStream,
-  });
