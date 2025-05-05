@@ -5,10 +5,12 @@ require ('dotenv').config()
 const routers = require('./routes')
 
 const dbConnect = require('./config/mongo.js')
+const { setupSwagger } = require('./swagger.js')
 
 const app=express()
 app.use(cors())
 app.use(express.json())
+setupSwagger(app)
 app.use("/", routers)
 
 const port = process.env.PORT || 3000

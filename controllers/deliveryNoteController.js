@@ -42,7 +42,6 @@ const createDeliveryNote = async (req, res) => {
         await newDeliveryNote.save();
         res.status(201).json({ data: newDeliveryNote });
     } catch (error) {
-        console.error(error);
         handleHttpError(res, "ERROR_CREATING_DELIVERY_NOTE", 500);
     }
 };
@@ -56,7 +55,6 @@ const getAllDeliveryNotes = async (req, res) => {
 
         res.status(200).json({ data: deliveryNotes });
     } catch (error) {
-        console.error(error);
         handleHttpError(res, "ERROR_GETTING_DELIVERY_NOTES", 500);
     }
 };
@@ -74,7 +72,6 @@ const getDeliveryNoteById = async (req, res) => {
 
         res.status(200).json({ data: deliveryNote });
     } catch (error) {
-        console.error(error);
         handleHttpError(res, "ERROR_GETTING_DELIVERY_NOTE", 500);
     }
 };
@@ -133,7 +130,6 @@ const generatePDFBuffer = (deliveryNote) => {
       res.end(pdfBuffer);
   
     } catch (error) {
-      console.error(error);
       handleHttpError(res, "ERROR_GENERATING_PDF", 500);
     }
   };
@@ -174,7 +170,6 @@ const generatePDFBuffer = (deliveryNote) => {
       });
   
     } catch (error) {
-      console.error(error);
       res.status(500).json({ message: "Error al firmar el albarán" });
     }
   };
@@ -200,7 +195,6 @@ const deleteDeliveryNote = async (req, res) => {
     return res.status(200).json({ message: 'Albarán archivado correctamente (soft delete)' });
 
   } catch (error) {
-    console.error(error);
     handleHttpError(res, "ERROR_DELETING_DELIVERY_NOTE", 500);
   }
 };
