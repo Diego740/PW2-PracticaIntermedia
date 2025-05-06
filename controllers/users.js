@@ -37,7 +37,7 @@ const createItem = async (req, res) => {
         const token = tokenSign(newUser);
 
         console.log(verificationCode);
-        return res.status(200).json({
+        return res.status(201).json({
             email: newUser.email,
             verificated: newUser.verificated,
             role: newUser.role,
