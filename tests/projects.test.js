@@ -19,6 +19,7 @@ beforeAll(async () => {
   // Limpiar la base de datos antes de las pruebas
   await Project.deleteMany({});
   await UserModel.deleteMany({});
+  await Client.deleteMany({});
 
   // Crear un usuario para las pruebas
   const encryptedPassword = await encryptPassword('password123');
