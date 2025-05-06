@@ -142,7 +142,7 @@ Content-Type: application/json
 ###
 PUT http://localhost:3000/password/changePassword
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U5NjY2NDJjMTkwOTU5MGUxNmQ0NDEiLCJpYXQiOjE3NDMzNzc1NjYsImV4cCI6MTc0MzM3ODQ2Nn0.dtvsQuCXd8w5GsRP_3p3Ltg4OO3IZct4eTCKzuRQ1jg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODFhMTI2ZDU1OTE2YWIyMzMyYmI5ZWYiLCJpYXQiOjE3NDY1NDA4NDUsImV4cCI6MTc0NjU0MTc0NX0.q6xLV3tNYGgVKEDas5xjh0WMJcd-fOdm0sHqNT9BJMc
 
 {
   "password": "holahola"
