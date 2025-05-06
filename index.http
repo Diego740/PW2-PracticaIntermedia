@@ -27,11 +27,11 @@ Content-Type: application/json
 ###
 PUT http://localhost:3000/users/validate
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U5NjY2NDJjMTkwOTU5MGUxNmQ0NDEiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMzc3NzIwLCJleHAiOjE3NDMzODEzMjB9.bgAICz6VYsHTh4N0gsnpxs3x2461w4mE2vjWkc5KUe4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODFhMGIxYTJlNTNmMzQyYTg0MWE5ODciLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTM3MjQyLCJleHAiOjE3NDY1NDA4NDJ9.jMRNzl3NbM1-11xtVIz2Wy5SAqM3RWKQEiswc1KImEo
 
 
 {
-    "code": "505981"
+    "code": "261454"
 }
 ###
 POST http://localhost:3000/users/register
@@ -55,7 +55,7 @@ Content-Type: application/json
 ###
 PUT http://localhost:3000/users/register
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NmFiNDg0MWM1NjQ5ZWNmNmMzNTgiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMzMwMDk5LCJleHAiOjE3NDMzMzM2OTl9.BEnAQ-3157DibUF530daiabULuC4G3cpcRyHThuu-pA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODFhMTI2ZDU1OTE2YWIyMzMyYmI5ZWYiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTM5MTE3LCJleHAiOjE3NDY1NDI3MTd9._29lAIf1ISE57fQuR-iOSFUoBd0fmKPoJQ0-CiqOqvY
 
 
 {
@@ -69,12 +69,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NmFiN
 ###
 PUT http://localhost:3000/users/company
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U4NmFiNDg0MWM1NjQ5ZWNmNmMzNTgiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMzMwMDk5LCJleHAiOjE3NDMzMzM2OTl9.BEnAQ-3157DibUF530daiabULuC4G3cpcRyHThuu-pA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODFhMGIxYTJlNTNmMzQyYTg0MWE5ODciLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTM3MjQyLCJleHAiOjE3NDY1NDA4NDJ9.jMRNzl3NbM1-11xtVIz2Wy5SAqM3RWKQEiswc1KImEo
 
 {
     "company": {
         "name": "Servitop, SL.",
-        "cif": "B12345678",
+        "cif": "B12345648",
         "street": "Carlos V",
         "number": 22,
         "postal": 28936,

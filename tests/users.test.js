@@ -64,6 +64,18 @@ describe('User API', () => {
     expect(response.body).toHaveProperty('token');
   });
 
+  it('shouldnt login a user  (wrong password)', async () => {
+    const response = await supertest(app)
+      .post('/users/login')
+      .send({
+        email: 'testuser@example.com',
+        password: 'password1223',
+      })
+      .expect(401);
+
+    expect(response.body.message).toBe('Contraseña incorrecta');
+  });
+
   it('should validate the user with correct code', async () => {
     const response = await supertest(app)
       .put('/users/validate')
@@ -72,6 +84,15 @@ describe('User API', () => {
       .expect(200);
 
     expect(response.body.message).toBe('Email verficado');
+  });
+
+  it('error validate the user with incorrect code', async () => {
+    const response = await supertest(app)
+      .put('/users/validate')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ code: '122456' })
+      .expect(400);
+
   });
 
   it('should get user data', async () => {
@@ -83,7 +104,30 @@ describe('User API', () => {
     expect(response.body.user).toHaveProperty('email', 'testuser@example.com');
   });
 
+  it('should show token error', async () => {
+    const response = await supertest(app)
+      .get('/users')
+      .expect(401);
+
+    expect(response.text).toBe('NOT_TOKEN');
+  });
+
   it('should update the user data', async () => {
+    const response = await supertest(app)
+      .put('/users/register')
+      .set('Authorization', `Bearer ${token}`)
+      .send({
+        email: 'diego.aranda2@live.u-tad.com',
+        name: 'Diego',
+        surnames: 'Aranda',
+        nif: '18456604R',
+      })
+      .expect(200);
+
+    expect(response.body.message).toBe('Datos actualizados correctamente');
+  });
+
+  it('shouldnt let update the user data', async () => {
     const response = await supertest(app)
       .put('/users/register')
       .set('Authorization', `Bearer ${token}`)
@@ -92,9 +136,8 @@ describe('User API', () => {
         surnames: 'Aranda',
         nif: '18456604R',
       })
-      .expect(200);
+      .expect(403);
 
-    expect(response.body.message).toBe('Datos actualizados correctamente');
   });
 
   it('should update the user company data', async () => {
@@ -125,6 +168,16 @@ describe('User API', () => {
       .expect(200);
 
     expect(response.body.message).toBe('Invitación enviada correctamente');
+  });
+
+  it('should invite a new user', async () => {
+    const response = await supertest(app)
+      .post('/users/invite')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ email: 'newuser@example.com' })
+      .expect(409);
+
+    expect(response.body.message).toBe('El usuario ya dispone de una cuenta');
   });
 
   it('should delete the user', async () => {
