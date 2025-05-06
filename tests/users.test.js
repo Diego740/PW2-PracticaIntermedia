@@ -6,8 +6,7 @@ const { encryptPassword } = require("../utils/handlePassword");
 const { tokenSign } = require("../utils/handleJWT"); 
 
 let token = '';
-let userId = '';
-let testUser = null;
+
 
 beforeAll(async () => {
   // Esperar a que la conexión a la base de datos esté lista
