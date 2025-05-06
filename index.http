@@ -182,7 +182,7 @@ Content-Type: application/json
 ###
 POST http://localhost:3000/client
 Content-Type: application/json
-Authorization: Bearer http://localhost:3000/client/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODFhMWMzNWFjYmI4N2Y1ZDNkYmY2YjMiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTQxNjIxLCJleHAiOjE3NDY1NDUyMjF9.hlB4DHNm5kmHbRbprJkl6j5CzsfDxj33Byc7LpMFOyQ
 
 {   
     "name": "Cliente 1",
@@ -210,16 +210,16 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5N
 }
 
 ###
-DELETE http://localhost:3000/client/6817a381c097c3812708113d
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2Mzk0MjM1LCJleHAiOjE3NDYzOTc4MzV9.pIOfZSQmhnzbCoeMUdT7MtquRpOXPKYioI1EgXUfSpE
+DELETE http://localhost:3000/client/681a1c76acbb87f5d3dbf6b7
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODFhMWMzNWFjYmI4N2Y1ZDNkYmY2YjMiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTQxNjIxLCJleHAiOjE3NDY1NDUyMjF9.hlB4DHNm5kmHbRbprJkl6j5CzsfDxj33Byc7LpMFOyQ
 
 ###
 DELETE http://localhost:3000/client/6817a381c097c3812708113d?delete=hard
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2Mzk0MjM1LCJleHAiOjE3NDYzOTc4MzV9.pIOfZSQmhnzbCoeMUdT7MtquRpOXPKYioI1EgXUfSpE
 
 ###
-PATCH http://localhost:3000/client/restore/6817a381c097c3812708113d
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODExZmE5NWVmNGM0NjA5OWQ3ZmM3N2EiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2Mzk0MjM1LCJleHAiOjE3NDYzOTc4MzV9.pIOfZSQmhnzbCoeMUdT7MtquRpOXPKYioI1EgXUfSpE
+PATCH http://localhost:3000/client/restore/681a1c76acbb87f5d3dbf6b7
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODFhMWMzNWFjYmI4N2Y1ZDNkYmY2YjMiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTQxNjIxLCJleHAiOjE3NDY1NDUyMjF9.hlB4DHNm5kmHbRbprJkl6j5CzsfDxj33Byc7LpMFOyQ
 
 
 ###
