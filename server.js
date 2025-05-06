@@ -16,7 +16,7 @@ app.use(express.json());
 morganBody(app, {
   noColors: true,
   skip: function (req, res) {
-    return res.statusCode < 400;
+    return res.statusCode <= 500;
   },
   stream: loggerStream,
 });
@@ -31,4 +31,4 @@ const server = app.listen(port, () => {
 
 dbConnect();
 
-module.exports = { app, server }; // Exportamos tanto app como server para usarlos en los tests
+module.exports = { app, server };

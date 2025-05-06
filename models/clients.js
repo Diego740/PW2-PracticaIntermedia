@@ -12,7 +12,6 @@ const clientScheme = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true,
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
